@@ -156,7 +156,9 @@ submit.addEventListener("click", async () => {
 		return (grid.innerHTML = getMessageCard(message, icon));
 	}
 
-	fetch(`http://192.168.3.14:3000/api/find-books/${searchStr}`)
+	fetch(
+		`https://lesdocode-libgen-api.herokuapp.com/api/find-books/${searchStr}`
+	)
 		.then((response) => response.json())
 		.then((data) => {
 			clearElementInnerHTML(grid);

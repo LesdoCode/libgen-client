@@ -48,32 +48,47 @@ main {
 
 .text-box {
 	height: 40px;
-	width: 70%;
 	border-radius: 5px;
 	border: 1px solid rgba(121, 10, 186, 0.974);
 	background-color: rgba(252, 251, 255, 0.727);
 	margin-top: 20px;
 	margin-right: 5px;
 	text-align: center;
+	flex-grow: 3;
 }
 
 .button {
 	min-height: 40px;
-	width: 40%;
 	border-radius: 5px;
 	border: 1px solid rgba(77, 77, 77, 0.577);
 	margin-top: 20px;
 	background-color: rgba(0, 0, 0, 0.85);
 	color: white;
+	flex-grow: 1;
 }
 
 .input-section {
-	width: 100%;
+	width: 80%;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
 	flex-direction: row;
 	padding-bottom: 10px;
+}
+
+@media screen and (min-width: 900px) {
+	.input-section {
+		width: 50%;
+	}
+	.button {
+		flex-grow: 0.5;
+	}
+}
+
+@media screen and (max-width: 530px) {
+	.input-section {
+		width: 100%;
+	}
 }
 
 .search-title {

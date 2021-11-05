@@ -16,11 +16,12 @@
 
 .book-field {
 	margin: 5px 30px 0 35px;
+	width: auto;
+	/* background: blue; */
 }
 
 .book-title {
 	background-color: #fa6aff23;
-	/* border-bottom: 1px solid rgba(255, 255, 255, 0.679); */
 
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -28,7 +29,12 @@
 	padding: 20px 15px 20px 25px;
 	margin-bottom: 10px;
 
-	height: 100px;
+	width: auto;
+	height: 87px;
+
+	overflow: auto;
+
+	display: flex;
 }
 
 .center-text {

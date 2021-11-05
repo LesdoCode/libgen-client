@@ -7,7 +7,7 @@ html {
 	padding: 0;
 }
 
-@media screen and (max-width: 150px) {
+@media screen and (max-width: 285px) {
 	body,
 	html {
 		overflow-x: hidden;
@@ -48,7 +48,7 @@ main {
 
 .text-box {
 	height: 40px;
-	width: 60%;
+	width: 70%;
 	border-radius: 5px;
 	border: 1px solid rgba(121, 10, 186, 0.974);
 	background-color: rgba(252, 251, 255, 0.727);
@@ -58,8 +58,8 @@ main {
 }
 
 .button {
-	height: 40px;
-	width: 130px;
+	min-height: 40px;
+	width: 40%;
 	border-radius: 5px;
 	border: 1px solid rgba(77, 77, 77, 0.577);
 	margin-top: 20px;

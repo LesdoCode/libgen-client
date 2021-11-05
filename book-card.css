@@ -17,6 +17,7 @@
 .book-field {
 	margin: 5px 30px 0 35px;
 	width: auto;
+	overflow: auto;
 	/* background: blue; */
 }
 

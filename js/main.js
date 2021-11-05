@@ -11,10 +11,12 @@ class CardComponent {
 		edition = "",
 		year = "",
 		downloadUrl = "",
+		coverUrl = "",
 		fileExtension = "",
 		numberOfPages = "",
 		language = "",
-		fileSize = 0
+		fileSize = 0,
+		md5 = ""
 	) {
 		this.id = id;
 		this.title = title;
@@ -24,10 +26,12 @@ class CardComponent {
 		this.edition = edition;
 		this.year = year;
 		this.downloadUrl = downloadUrl;
+		this.coverUrl = `http://library.lol/covers/${coverUrl}`;
 		this.fileExtension = fileExtension;
 		this.numberOfPages = numberOfPages;
 		this.language = language;
 		this.fileSize = fileSize;
+		this.md5 = md5;
 
 		for (let prop in this) {
 			if (this[prop] === "") this[prop] = "---";
@@ -39,66 +43,68 @@ class CardComponent {
 	}
 	draw() {
 		return `
-        <div class="book-card text-left">
-					<div class="book-title">
-						<span class="text-light lead">
-							${this.title}
-						</span>
-					</div>
-					<div class="book-field">
-						<h6>Author:</h6>
-						<p>
-							${this.author}
-						</p>
-					</div>
+        <a href="${this.coverUrl}">
+            <div class="book-card text-left">
+                <div class="book-title">
+                    <span class="text-light lead">
+                        ${this.title}
+                    </span>
+                </div>
+                <div class="book-field">
+                    <h6>Author:</h6>
+                    <p>
+                        ${this.author}
+                    </p>
+                </div>
 
-					<div class="book-field">
-						<h6>Publisher:</h6>
-						<p>${this.publisher}</p>
-					</div>
+                <div class="book-field">
+                    <h6>Publisher:</h6>
+                    <p>${this.publisher}</p>
+                </div>
 
-					<div class="book-field">
-						<h6>ISBN</h6>
-						<p>${this.isbn}</p>
-					</div>
+                <div class="book-field">
+                    <h6>ISBN</h6>
+                    <p>${this.isbn}</p>
+                </div>
 
-					<div class="book-info">
-						<div class="book-info-item download-button">
-							<a href=${this.downloadUrl} >
-                                <h3><i class="bi bi-download"></i></h3>
-                            </a>
-						</div>
+                <div class="book-info">
+                    <div class="book-info-item download-button">
+                        <a href=${this.downloadUrl} >
+                            <h3><i class="bi bi-download"></i></h3>
+                        </a>
+                    </div>
 
-						<div class="book-info-item">
-							<h6>Book type:</h6>
-							<p>${this.fileExtension}</p>
-						</div>
-						<div class="book-info-item">
-							<h6>Edition:</h6>
-							<p>${this.edition}</p>
-						</div>
-						<div class="book-info-item">
-							<h6>Year:</h6>
-							<p>${this.year}</p>
-						</div>
-						<div class="book-info-item">
-							<h6>Pages:</h6>
-							<p>${this.numberOfPages}</p>
-						</div>
-						<div class="book-info-item">
-							<h6>Language:</h6>
-							<p>${this.language}</p>
-						</div>
-						<div class="book-info-item">
-							<h6>File Size:</h6>
-							<p>${this.getFileSize()}</p>
-						</div>
-						<div class="book-info-item">
-							<h6>ID:</h6>
-							<p>${this.id}</p>
-						</div>
-					</div>
-				</div>`;
+                    <div class="book-info-item">
+                        <h6>Book type:</h6>
+                        <p>${this.fileExtension}</p>
+                    </div>
+                    <div class="book-info-item">
+                        <h6>Edition:</h6>
+                        <p>${this.edition}</p>
+                    </div>
+                    <div class="book-info-item">
+                        <h6>Year:</h6>
+                        <p>${this.year}</p>
+                    </div>
+                    <div class="book-info-item">
+                        <h6>Pages:</h6>
+                        <p>${this.numberOfPages}</p>
+                    </div>
+                    <div class="book-info-item">
+                        <h6>Language:</h6>
+                        <p>${this.language}</p>
+                    </div>
+                    <div class="book-info-item">
+                        <h6>File Size:</h6>
+                        <p>${this.getFileSize()}</p>
+                    </div>
+                    <div class="book-info-item">
+                        <h6>ID:</h6>
+                        <p>${this.id}</p>
+                    </div>
+                </div>
+            </div>
+        </a>`;
 	}
 }
 
@@ -178,7 +184,13 @@ submit.addEventListener("click", async () => {
 					book.identifierwodash,
 					book.edition,
 					book.year,
-					"www.google.com"
+					`http://library.lol/main/${book.md5}`,
+					book.coverurl,
+					book.extension,
+					book.pages,
+					book.language,
+					book.filesize,
+					book.md5
 				).draw();
 			}
 		})

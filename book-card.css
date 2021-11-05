@@ -84,3 +84,9 @@
 	justify-content: space-around;
 	align-items: center;
 }
+
+a,
+a:hover {
+	text-decoration: none;
+	color: white;
+}
